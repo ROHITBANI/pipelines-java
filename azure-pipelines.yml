@@ -10,11 +10,8 @@ strategy:
   matrix:
     linux:
       imageName: "ubuntu-latest"
-    mac:
-      imageName: "macOS-latest"
-    windows:
-      imageName: "windows-latest"
-  maxParallel: 3
+   
+  maxParallel: 1
 
 pool:
   vmImage: $(imageName)
@@ -22,11 +19,11 @@ pool:
 variables:
 - group: "New variable group 02-Jan"
 - name: va
-  value: $[variables.a]
+  value: $[variables.username]
 - name: vb
-  value: $[variables.b]
+  value: $[variables.password]
 - name: vcontososecret
-  value: $[variables.contososecret] 
+  value: $[variables.admin] 
 
 steps:
 - task: Maven@4
