@@ -53,7 +53,7 @@ steps:
     do
         echo "$number"
     done
-    echo "Count up to the value of the variable group's nonsecret variable *b*:"
+    echo "Count  up to the value of the variable group's nonsecret variable *b*:"
     for number in {1..$(vb)}
     do
         echo "$number"
