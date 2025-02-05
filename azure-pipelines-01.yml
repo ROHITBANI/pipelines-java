@@ -1,8 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
@@ -16,6 +11,7 @@ jobs:
   - script: echo Job 1
     displayName: Job 1 completed
 - job: Job2
+  dependsOn: job1
   steps:
   - script: echo Hello, world!
     displayName: 'Job 2 running'
