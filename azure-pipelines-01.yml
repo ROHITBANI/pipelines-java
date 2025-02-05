@@ -20,3 +20,13 @@ jobs:
       echo Add other tasks to build, test, and deploy your project.
       echo See https://aka.ms/yaml
     displayName: 'Job 2 completed'
+- job: Job3
+  dependsOn: job1
+  steps:
+  - script: echo Hello, world!
+    displayName: 'Job 3 running'
+
+  - script: |
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
+    displayName: 'Job 3 completed'
