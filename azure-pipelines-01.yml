@@ -3,30 +3,51 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-
 # Pipelines > Stages > Job > task
-jobs:
-- job: Job1 
-  steps:
-  - script: echo Job 1
-    displayName: Job 1 completed
-- job: Job2
-  dependsOn: job1
-  steps:
-  - script: echo Hello, world!
-    displayName: 'Job 2 running'
 
-  - script: |
-      echo Add other tasks to build, test, and deploy your project.
-      echo See https://aka.ms/yaml
-    displayName: 'Job 2 completed'
-- job: Job3
-  dependsOn: job1
-  steps:
-  - script: echo Hello, world!
-    displayName: 'Job 3 running'
+stages:
+- stage: Build
+  jobs:
+  - job: Job1 
+    steps:
+    - script: echo Job 1
+      displayName: Job 1 completed
+  - job: Job2
+    dependsOn: job1
+    steps:
+    - script: echo Hello, world!
+      displayName: 'Job 2 running'
 
-  - script: |
-      echo Add other tasks to build, test, and deploy your project.
-      echo See https://aka.ms/yaml
-    displayName: 'Job 3 completed'
+    - script: |
+        echo Add other tasks to build, test, and deploy your project.
+        echo See https://aka.ms/yaml
+      displayName: 'Job 2 completed'
+  - job: Job3
+    dependsOn: job1
+    steps:
+    - script: echo Hello, world!
+      displayName: 'Job 3 running'
+
+    - script: |
+        echo Add other tasks to build, test, and deploy your project.
+        echo See https://aka.ms/yaml
+      displayName: 'Job 3 completed'
+- stage: DevDeploy
+  jobs:
+  - job: Job1 
+    steps:
+    - script: echo Dev Job 1
+      displayName: Dev Job 1 completed
+- stage: QADeploy
+  jobs:
+  - job: Job1 
+    steps:
+    - script: echo QA Job 1
+      displayName: QA Job 1 completed
+- stage: ProdDeploy
+  jobs:
+  - job: Job1 
+    steps:
+    - script: echo Prod Job 1
+      displayName: Prod Job 1 completed
+
