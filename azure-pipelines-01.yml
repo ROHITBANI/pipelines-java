@@ -33,12 +33,14 @@ stages:
         echo See https://aka.ms/yaml
       displayName: 'Job 3 completed'
 - stage: DevDeploy
+  dependsOn: Build
   jobs:
   - job: Job1 
     steps:
     - script: echo Dev Job 1
       displayName: Dev Job 1 completed
 - stage: QADeploy
+  dependsOn: Build
   jobs:
   - job: Job1 
     steps:
